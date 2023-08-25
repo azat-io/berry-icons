@@ -5,6 +5,7 @@ import os from 'os'
 
 import { getColorTheme } from './get-color-theme'
 import { generateIcons } from './generate-icons'
+import { getTheme } from './get-theme'
 
 interface IconSchema {
   folderNamesExpanded: {
@@ -66,6 +67,7 @@ export let build = async (): Promise<void> => {
     {
       colorTheme: getColorTheme(),
       destDir: './icons',
+      theme: getTheme(),
       tmpDir,
     },
     updateThemedData,

@@ -12,16 +12,23 @@ declare global {
     files?: string[]
   }
 
+  type Theme = 'light' | 'dark'
+
   interface ColorTheme {
     overrides?: {
       [key: string]: {
         [key: string]: string
       }
     }
-    colors: string[]
+    colors:
+      | {
+          [key in Theme]: string[]
+        }
+      | string[]
+    previewBackground: string
+    previewTheme: Theme
+    name: string
   }
-
-  type Theme = 'light' | 'dark'
 
   type IconType = 'folders' | 'files' | 'base'
 }

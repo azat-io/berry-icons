@@ -25,10 +25,12 @@ export let generateIcons = async (
     colorTheme,
     destDir,
     tmpDir,
+    theme,
   }: {
     colorTheme: string
     destDir: string
     tmpDir: string
+    theme?: Theme
   },
   callback?: (buildOptions: BuildOptions) => void,
 ): Promise<IconDefinitions> => {
@@ -50,7 +52,14 @@ export let generateIcons = async (
 
     await fs.writeFile(
       path.join(tmpDir, fileName),
-      colorize(colorTheme, config.id, source),
+      colorize(
+        {
+          colorTheme,
+          theme,
+        },
+        config.id,
+        source,
+      ),
     )
 
     if (callback) {

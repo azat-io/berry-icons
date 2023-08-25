@@ -3,7 +3,7 @@ import type { RGBColor } from 'color-diff'
 import colorConvert from 'color-convert'
 import { closest } from 'color-diff'
 
-import { colorThemes } from '../themes/index'
+import { gruvbox } from '../themes/gruvbox'
 
 type Keyword =
   | 'fuchsia'
@@ -59,33 +59,31 @@ let findNearestColor = (colorList: string[], color: string): string => {
 }
 
 export let colorize = (
-  colorTheme: string,
+  { colorTheme, theme }: { colorTheme: string; theme?: Theme },
   id: string,
   source: string,
 ): string => {
   let pattern =
     /#([\da-f]{6}|[\da-f]{3})|black|green|silver|gray|olive|white|yellow|maroon|navy|red|blue|purple|teal|fuchsia|aqua/gi
 
-  let theme: ColorTheme
+  let userColorTheme: ColorTheme
 
-  if (colorTheme.startsWith('dracula')) {
-    theme = colorThemes.dracula
-  } else if (colorTheme.startsWith('github')) {
-    theme = colorThemes.github
-  } else if (colorTheme.startsWith('gruvbox')) {
-    theme = colorThemes.gruvbox
-  } else if (colorTheme.startsWith('vitesse')) {
-    theme = colorThemes.vitesse
+  if (colorTheme.startsWith('gruvbox')) {
+    userColorTheme = gruvbox
   } else {
     return source
   }
 
-  let { overrides, colors } = theme
+  let { previewTheme, overrides, colors } = userColorTheme
+
+  let themeColor = Array.isArray(colors)
+    ? colors
+    : colors[theme ?? previewTheme]
 
   return source.replaceAll(
     pattern,
     matched =>
       overrides?.[id]?.[matched.toLowerCase()] ??
-      findNearestColor(colors, matched),
+      findNearestColor(themeColor, matched),
   )
 }
