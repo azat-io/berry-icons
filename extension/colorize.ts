@@ -2,9 +2,8 @@ import type { RGBColor } from 'color-diff'
 
 import colorConvert from 'color-convert'
 import { closest } from 'color-diff'
-import * as vscode from 'vscode'
 
-import { colorThemes } from '../themes'
+import { colorThemes } from '../themes/index'
 
 type Keyword =
   | 'fuchsia'
@@ -59,24 +58,23 @@ let findNearestColor = (colorList: string[], color: string): string => {
   return rgbToHex(R, G, B)
 }
 
-export let colorize = (id: string, source: string): string => {
-  let userColorTheme = vscode.workspace
-    .getConfiguration('workbench')
-    .get<string>('colorTheme')
-    ?.toLowerCase()
-
+export let colorize = (
+  colorTheme: string,
+  id: string,
+  source: string,
+): string => {
   let pattern =
     /#([\da-f]{6}|[\da-f]{3})|black|green|silver|gray|olive|white|yellow|maroon|navy|red|blue|purple|teal|fuchsia|aqua/gi
 
   let theme: ColorTheme
 
-  if (userColorTheme?.startsWith('dracula')) {
+  if (colorTheme.startsWith('dracula')) {
     theme = colorThemes.dracula
-  } else if (userColorTheme?.startsWith('github')) {
+  } else if (colorTheme.startsWith('github')) {
     theme = colorThemes.github
-  } else if (userColorTheme?.startsWith('gruvbox')) {
+  } else if (colorTheme.startsWith('gruvbox')) {
     theme = colorThemes.gruvbox
-  } else if (userColorTheme?.startsWith('vitesse')) {
+  } else if (colorTheme.startsWith('vitesse')) {
     theme = colorThemes.vitesse
   } else {
     return source
