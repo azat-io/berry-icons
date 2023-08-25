@@ -4,6 +4,7 @@ declare global {
   interface BaseIcon {
     light?: boolean
     name: string
+    id: string
   }
 
   interface FileIcon extends BaseIcon {

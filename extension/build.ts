@@ -108,19 +108,20 @@ export let build = async (): Promise<void> => {
     type: IconType,
   ): BuildOptions[] =>
     icons.reduce(
-      (accumulator: BuildOptions[], { light, name, ...props }) => [
+      (accumulator: BuildOptions[], { light, name, id, ...props }) => [
         ...accumulator,
         {
           theme: 'dark',
           type,
           name,
+          id,
           ...props,
         },
         ...(light
           ? [
               {
                 theme: 'light' as Theme,
-                id: `${name}-light`,
+                id: `${id}-light`,
                 name,
                 type,
                 ...props,

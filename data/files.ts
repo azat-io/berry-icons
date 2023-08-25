@@ -2,6 +2,7 @@ export let filesIcons: FileIcon[] = [
   {
     extensions: ['css'],
     name: 'CSS',
+    id: 'css',
   },
   {
     files: [
@@ -18,6 +19,7 @@ export let filesIcons: FileIcon[] = [
       'eslint.config.js',
     ],
     name: 'ESLint',
+    id: 'eslint',
   },
   {
     files: [
@@ -33,18 +35,22 @@ export let filesIcons: FileIcon[] = [
       'git-history',
     ],
     name: 'Git',
+    id: 'git',
   },
   {
     extensions: ['htm', 'html'],
     name: 'HTML',
+    id: 'html',
   },
   {
     extensions: ['js', 'cjs', 'mjs', 'es'],
     name: 'JavaScript',
+    id: 'javascript',
   },
   {
     extensions: ['md'],
     name: 'Markdown',
+    id: 'markdown',
   },
   {
     files: [
@@ -55,23 +61,28 @@ export let filesIcons: FileIcon[] = [
       '.node-version',
     ],
     name: 'NodeJS',
+    id: 'nodejs',
   },
   {
     files: ['pnpm-lock.yaml', 'pnpm-workspace.yaml', '.pnpmfile.cjs'],
     name: 'pnpm',
     light: true,
+    id: 'pnpm',
   },
   {
     extensions: ['svg'],
     name: 'SVG',
+    id: 'svg',
   },
   {
     extensions: ['ts', 'cts', 'mts'],
     name: 'TypeScript',
+    id: 'typescript',
   },
   {
     extensions: ['d.ts', 'd.cts', 'd.mts'],
     name: 'TypeScript Defs',
+    id: 'typescript-defs',
   },
   {
     files: [
@@ -84,5 +95,6 @@ export let filesIcons: FileIcon[] = [
     ],
     name: 'Vite',
     light: true,
+    id: 'vite',
   },
 ]
