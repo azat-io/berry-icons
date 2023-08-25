@@ -4,6 +4,7 @@ import fs from 'fs/promises'
 import path from 'path'
 
 import { generateIcons } from '../extension/generate-icons'
+import { gruvbox } from '../themes/gruvbox'
 import { filesIcons } from '../data/files'
 
 let getDirname = (importMetaUrl: string): string =>
@@ -11,15 +12,15 @@ let getDirname = (importMetaUrl: string): string =>
 
 let __dirname = getDirname(import.meta.url)
 
-let createScreenshot = async (colorTheme: string): Promise<void> => {
+let createScreenshot = async (colorTheme: ColorTheme): Promise<void> => {
   try {
     let tmpDir = path.join(__dirname, '..', 'temp')
 
     await fs.mkdir(tmpDir, { recursive: true })
 
     let iconDefinitions = await generateIcons({
+      colorTheme: colorTheme.id,
       destDir: tmpDir,
-      colorTheme,
       tmpDir,
     })
 
@@ -58,8 +59,8 @@ let createScreenshot = async (colorTheme: string): Promise<void> => {
           'margin: 0;',
           'font-family: Helvetica, sans-serif;',
           'font-size: 12px;',
-          'background: #1d2021;',
-          'color: #928374;',
+          `background: ${colorTheme.previewBackground};`,
+          `color: ${colorTheme.previewColor};`,
         '}',
         '.container {',
           'display: grid;',
@@ -98,7 +99,7 @@ let createScreenshot = async (colorTheme: string): Promise<void> => {
     })
 
     await page.screenshot({
-      path: `assets/${colorTheme}.webp`,
+      path: `assets/${colorTheme.id}.webp`,
       omitBackground: true,
       fullPage: true,
       type: 'webp',
@@ -111,4 +112,4 @@ let createScreenshot = async (colorTheme: string): Promise<void> => {
   }
 }
 
-await createScreenshot('gruvbox')
+Promise.all([gruvbox].map(colorTheme => createScreenshot(colorTheme)))

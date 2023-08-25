@@ -26,8 +26,10 @@ declare global {
         }
       | string[]
     previewBackground: string
+    previewColor: string
     previewTheme: Theme
     name: string
+    id: string
   }
 
   type IconType = 'folders' | 'files' | 'base'

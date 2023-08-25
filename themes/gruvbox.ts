@@ -72,6 +72,8 @@ export let gruvbox: ColorTheme = {
     },
   },
   previewBackground: '#1d2021',
+  previewColor: '#ebdbb2',
   previewTheme: 'dark',
   name: 'Gruvbox',
+  id: 'gruvbox',
 }
