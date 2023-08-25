@@ -1,0 +1,86 @@
+{
+  "name": "berry-icons",
+  "description": "VSCode icon theme",
+  "version": "0.1.0",
+  "repository": "azat-io/berry-icons",
+  "author": "Azat S. <to@azat.io>",
+  "publisher": "azat-io",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.81.x"
+  },
+  "keywords": [
+    "icons",
+    "theme",
+    "gruvbox",
+    "icon-theme",
+    "customization"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "update-themes": "tsm \"./themes/get-theme-colors.ts\"",
+    "test:format": "prettier --check \"**/*.{js,ts,json,md,yml}\"",
+    "test:js": "eslint \"**/*.{js,ts}\"",
+    "test:types": "tsc --noEmit --pretty",
+    "test": "pnpm run /^test:/"
+  },
+  "main": "dist/index.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "iconThemes": [
+      {
+        "id": "berry-icons",
+        "label": "Berry Icons",
+        "path": "./dist/index.json",
+        "_watch": true
+      }
+    ],
+    "configuration": {
+      "title": "Berry Icons",
+      "properties": {
+        "berryIcons.hideExplorerArrows": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    }
+  },
+  "galleryBanner": {
+    "theme": "light",
+    "color": "#f0c2cb"
+  },
+  "icon": "assets/logo.png",
+  "dependencies": {
+    "color-convert": "^2.0.1",
+    "color-diff": "^1.4.0"
+  },
+  "devDependencies": {
+    "@azat-io/eslint-config-typescript": "^1.2.1",
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
+    "@types/color-convert": "^2.0.0",
+    "@types/color-diff": "^1.2.1",
+    "@types/node": "^20.5.6",
+    "@types/vscode": "^1.81.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "changelogen": "^0.5.5",
+    "eslint": "^8.47.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-n": "^16.0.2",
+    "eslint-plugin-perfectionist": "^1.5.1",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
+    "eslint-plugin-prefer-let": "^3.0.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-sonarjs": "^0.21.0",
+    "eslint-plugin-unicorn": "^48.0.1",
+    "eslint-plugin-vitest": "^0.2.8",
+    "prettier": "^3.0.2",
+    "simple-git-hooks": "^2.9.0",
+    "tsm": "^2.3.0",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9"
+  }
+}
