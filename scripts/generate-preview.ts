@@ -6,6 +6,7 @@ import path from 'path'
 import { generateIcons } from '../extension/generate-icons'
 import { gruvbox } from '../themes/gruvbox'
 import { filesIcons } from '../data/files'
+import { github } from '../themes/github'
 
 let getDirname = (importMetaUrl: string): string =>
   path.dirname(fileURLToPath(importMetaUrl))
@@ -14,7 +15,7 @@ let __dirname = getDirname(import.meta.url)
 
 let createScreenshot = async (colorTheme: ColorTheme): Promise<void> => {
   try {
-    let tmpDir = path.join(__dirname, '..', 'temp')
+    let tmpDir = path.join(__dirname, '..', `temp-${colorTheme.id}}`)
 
     await fs.mkdir(tmpDir, { recursive: true })
 
@@ -79,18 +80,26 @@ let createScreenshot = async (colorTheme: ColorTheme): Promise<void> => {
       '</style>',
       '<div class="container">',
         filesIcons
-          .reduce((accumulator: string[], { name, id }) => [
+          .reduce((accumulator: string[], { light, name, id }) => {
+            let icon = icons[id]
+
+            if (colorTheme.previewTheme === 'light' && light) {
+              icon = icons[`${id}-light`]
+            }
+
+            return [
             ...accumulator,
             '<div class="item">',
               '<img src="data:image/svg+xml;base64,',
-                icons[id],
+                icon,
                 '"',
               '/>',
               '<p class="name">',
                 name,
               '</p>',
             '</div>',
-          ], []).join('\n'),
+          ]
+}, []).join('\n'),
       '</div>',
     ].join('\n')
 
@@ -112,4 +121,4 @@ let createScreenshot = async (colorTheme: ColorTheme): Promise<void> => {
   }
 }
 
-Promise.all([gruvbox].map(colorTheme => createScreenshot(colorTheme)))
+Promise.all([github, gruvbox].map(colorTheme => createScreenshot(colorTheme)))

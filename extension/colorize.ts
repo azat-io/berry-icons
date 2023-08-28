@@ -4,6 +4,7 @@ import colorConvert from 'color-convert'
 import { closest } from 'color-diff'
 
 import { gruvbox } from '../themes/gruvbox'
+import { github } from '../themes/github'
 
 type Keyword =
   | 'fuchsia'
@@ -68,7 +69,9 @@ export let colorize = (
 
   let userColorTheme: ColorTheme
 
-  if (colorTheme.startsWith('gruvbox')) {
+  if (colorTheme.startsWith('github')) {
+    userColorTheme = github
+  } else if (colorTheme.startsWith('gruvbox')) {
     userColorTheme = gruvbox
   } else {
     return source
