@@ -70,6 +70,9 @@ export let gruvbox: ColorTheme = {
     nodejs: {
       '#6cc24a': '#98971a',
     },
+    svg: {
+      '#ffb338': '#fe8019',
+    },
   },
   previewBackground: '#1d2021',
   previewColor: '#ebdbb2',
