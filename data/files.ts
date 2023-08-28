@@ -102,4 +102,17 @@ export let filesIcons: FileIcon[] = [
     light: true,
     id: 'vite',
   },
+  {
+    files: [
+      '.yarnrc',
+      'yarn.lock',
+      '.yarnclean',
+      '.yarn-integrity',
+      'yarn-error.log',
+      '.yarnrc.yml',
+      '.yarnrc.yaml',
+    ],
+    name: 'Yarn',
+    id: 'yarn',
+  },
 ]
