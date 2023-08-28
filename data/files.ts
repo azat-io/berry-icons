@@ -75,6 +75,23 @@ export let filesIcons: FileIcon[] = [
     id: 'pnpm',
   },
   {
+    extensions: [
+      'stories.js',
+      'stories.jsx',
+      'stories.mdx',
+      'story.js',
+      'story.jsx',
+      'stories.ts',
+      'stories.tsx',
+      'story.ts',
+      'story.tsx',
+      'stories.svelte',
+      'story.mdx',
+    ],
+    name: 'Storybook',
+    id: 'storybook',
+  },
+  {
     extensions: ['svg'],
     name: 'SVG',
     id: 'svg',

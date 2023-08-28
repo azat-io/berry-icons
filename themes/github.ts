@@ -44,6 +44,9 @@ export let github: ColorTheme = {
     ],
   },
   overrides: {
+    storybook: {
+      '#ff4785': '#e85aad',
+    },
     nodejs: {
       '#6cc24a': '#116329',
     },
