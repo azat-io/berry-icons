@@ -1,5 +1,10 @@
 export let filesIcons: FileIcon[] = [
   {
+    extensions: ['astro'],
+    name: 'Astro',
+    id: 'astro',
+  },
+  {
     files: ['browserslist', '.browserslistrc'],
     name: 'Browserslist',
     id: 'browserslist',
