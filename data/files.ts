@@ -97,6 +97,11 @@ export let filesIcons: FileIcon[] = [
     id: 'storybook',
   },
   {
+    extensions: ['svelte'],
+    name: 'Svelte',
+    id: 'svelte',
+  },
+  {
     extensions: ['svg'],
     name: 'SVG',
     id: 'svg',
