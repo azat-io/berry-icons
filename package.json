@@ -58,17 +58,17 @@
     "color-diff": "^1.4.0"
   },
   "devDependencies": {
-    "@azat-io/eslint-config-typescript": "^1.5.0",
-    "@commitlint/cli": "^17.7.1",
+    "@azat-io/eslint-config-typescript": "^1.5.1",
+    "@commitlint/cli": "^17.7.2",
     "@commitlint/config-conventional": "^17.7.0",
     "@types/color-convert": "^2.0.1",
     "@types/color-diff": "^1.2.2",
-    "@types/node": "^20.6.0",
+    "@types/node": "^20.8.2",
     "@types/vscode": "^1.82.0",
-    "@typescript-eslint/eslint-plugin": "^6.7.0",
-    "@typescript-eslint/parser": "^6.7.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.4",
+    "@typescript-eslint/parser": "^6.7.4",
     "changelogen": "^0.5.5",
-    "eslint": "^8.49.0",
+    "eslint": "^8.50.0",
     "eslint-plugin-import": "^2.28.1",
     "eslint-plugin-n": "^16.1.0",
     "eslint-plugin-perfectionist": "^2.1.0",
@@ -77,13 +77,13 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-sonarjs": "^0.21.0",
     "eslint-plugin-unicorn": "^48.0.1",
-    "eslint-plugin-vitest": "^0.3.1",
+    "eslint-plugin-vitest": "^0.3.2",
     "prettier": "^3.0.3",
-    "puppeteer": "^21.2.1",
+    "puppeteer": "^21.3.6",
     "simple-git-hooks": "^2.9.0",
     "ts-node": "^10.9.1",
     "tsm": "^2.3.0",
     "typescript": "^5.2.2",
-    "vite": "^4.4.9"
+    "vite": "^4.4.10"
   }
 }
